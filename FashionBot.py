@@ -81,8 +81,8 @@ def get_response(question):
     # return answer
      try:
           return result
-     except:
-          return 'Something is wrong with result !'
+     except Exception as e:
+          return 'Something is wrong with result ! Error message: {e}'
 
 # Streamlit app
 # Remove whitespace from the top of the page and sidebar
@@ -161,6 +161,7 @@ if st.session_state.messages[-1]["role"] != "assistant":
             placeholder.markdown(full_response)
     message = {"role": "assistant", "content": full_response}
     st.session_state.messages.append(message)
+
 
 
 
