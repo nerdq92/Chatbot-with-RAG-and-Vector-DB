@@ -74,7 +74,7 @@ rag_chain = RetrievalQA.from_chain_type(
     chain_type_kwargs={"prompt": custom_prompt})
 
 def get_response(question):
-    # result = rag_chain({"query": question})
+    result = rag_chain({"query": question})
     # response_text = result["result"]
     # answer_start = response_text.find("Answer:") + len("Answer:")
     # answer = response_text[answer_start:].strip()
@@ -161,6 +161,7 @@ if st.session_state.messages[-1]["role"] != "assistant":
             placeholder.markdown(full_response)
     message = {"role": "assistant", "content": full_response}
     st.session_state.messages.append(message)
+
 
 
 
