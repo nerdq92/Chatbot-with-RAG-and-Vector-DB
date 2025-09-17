@@ -25,8 +25,9 @@ vector_store = Chroma(embedding_function=embedding_model, persist_directory=data
 
 # Initialize the Hugging Face Hub LLM
 hf_hub_llm = HuggingFaceHub(
-     repo_id="meta-llama/Meta-Llama-3-8B-Instruct",
+     # repo_id="meta-llama/Meta-Llama-3-8B-Instruct",
     # repo_id="mistralai/Mistral-7B-Instruct-v0.3",
+     repo_id="deepseek-ai/DeepSeek-R1",
     model_kwargs={"temperature": 1, "max_new_tokens":1024},
 )
 
@@ -160,5 +161,6 @@ if st.session_state.messages[-1]["role"] != "assistant":
             placeholder.markdown(full_response)
     message = {"role": "assistant", "content": full_response}
     st.session_state.messages.append(message)
+
 
 
